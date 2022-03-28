@@ -13,6 +13,7 @@ porta_OPC = '4840'
 
 def main():
     servidor = Server()
+    servidor.name = 'Flexsim'
     servidor.set_endpoint(f'opc.tcp://{ip_OPC}:{porta_OPC}')
 
     spaceNome = 'Flexsim'

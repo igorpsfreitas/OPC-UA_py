@@ -1,4 +1,5 @@
 from tkinter import *
+from funcoes import Servidor
 
 class Tela_main():
     
@@ -47,6 +48,7 @@ class Variavel():
         self._deletar.grid(row=0,column=3)
         
         self.Habilitar_e_desabilitar()
+        
 
     def Habilitar_e_desabilitar(self):
         match self._valor['state']:
@@ -65,11 +67,16 @@ class Variavel():
     def Destroi_frame(self):
         self._frame_variavel.pack_forget()
         
+    def auto_valor_variavel(self, servidor, tela):
+        self.Set_valor(str(servidor.estado01.get_value()))
+        #tela.after(500, self.auto_valor_variavel)
         
+## Testes:        
 if __name__ == "__main__":
+    servidor = Servidor()
     root = Tela_main()
     frame_root = Frame_root(root._tela)
     menu = Menu_bar(root._tela, frame_root)
     botao = Variavel(frame_root._frame)
-    #botao.Set_valor(2)
+    botao.auto_valor_variavel(servidor,root)
     root.Cria_tela()
