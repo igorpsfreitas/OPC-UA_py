@@ -1,4 +1,3 @@
-from tkinter import *
 from gui_v2 import Tela_main
 
 root = Tela_main()
